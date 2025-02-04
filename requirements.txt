@@ -4,7 +4,9 @@ numpy
 setuptools
 pymongo
 certifi
-pymongo[srv] == 
+pymongo[srv]
 scikit-learn
+dill
+pyaml
 
 # -e .
