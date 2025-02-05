@@ -94,7 +94,6 @@ class ModelTrainerConfig:
             self.model_trainer_dir , training_pipeline.MODEL_TRAINER_TRAINED_MODEL_DIR,
             training_pipeline.MODEL_TRAINER_TRAINED_MODEL_FILE_NAME
         )
-        print(self.trained_model_file_path)
 
         self.expected_accuracy: float = training_pipeline.MODEL_TRAINER_EXPECTED_SCORE
         self.threshold: float = training_pipeline.MODEL_TRAINER_THRESHOLD
