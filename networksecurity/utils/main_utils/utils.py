@@ -28,3 +28,23 @@ def write_yaml_file(file_path: str , content: object , replace: bool = False) ->
     except Exception as e:
         logging.error(f"Error writing yaml file {file_path}")
         raise NetworkSecurityException(e , sys)
+
+def save_numpy_array(file_path: str , data: np.ndarray) -> None:
+    try:
+        dir_path = os.path.dirname(file_path)
+        os.makedirs(dir_path , exist_ok = True)
+        with open(file_path , "wb") as file:
+            np.save(file , data)
+    except Exception as e:
+        logging.error(f"Error saving numpy array {file_path}")
+        raise NetworkSecurityException(e , sys)
+
+def  save_object(file_path: str , object: object) -> None:
+    try:
+        dir_path = os.path.dirname(file_path)
+        os.makedirs(dir_path , exist_ok = True)
+        with open(file_path , "wb") as file:
+            pickle.dump(object , file)
+    except Exception as e:
+        logging.error(f"Error saving object {file_path}")
+        raise NetworkSecurityException(e , sys)

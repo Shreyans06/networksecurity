@@ -1,3 +1,4 @@
+import stat
 from tkinter.tix import STATUS
 from numpy import test
 from networksecurity.entity.artifact_entity import DataIngestionArtifact , DataValidationArtifact
@@ -57,7 +58,7 @@ class DataValidation:
                     logging.info(f"Drift detected in column: {column}")
                 
                 report.update({column : {"p_value" : float(p_value) , "drift_status" : drift_status}})
-            
+                drift_status = False
             drift_report_file_path = self.data_validation_config.drift_report_file_path
             dir_path = os.path.dirname(drift_report_file_path)
             os.makedirs(dir_path , exist_ok=True)
