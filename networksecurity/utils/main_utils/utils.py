@@ -1,3 +1,4 @@
+
 import yaml
 from networksecurity.exception.exception import NetworkSecurityException
 from networksecurity.logging.logger import logging
@@ -39,7 +40,7 @@ def save_numpy_array(file_path: str , data: np.ndarray) -> None:
         logging.error(f"Error saving numpy array {file_path}")
         raise NetworkSecurityException(e , sys)
 
-def  save_object(file_path: str , object: object) -> None:
+def save_object(file_path: str , object: object) -> None:
     try:
         dir_path = os.path.dirname(file_path)
         os.makedirs(dir_path , exist_ok = True)
@@ -48,3 +49,24 @@ def  save_object(file_path: str , object: object) -> None:
     except Exception as e:
         logging.error(f"Error saving object {file_path}")
         raise NetworkSecurityException(e , sys)
+
+def load_object(file_path: str) -> object:
+    try:
+        if not os.path.exists(file_path):
+            raise Exception(f"File {file_path} not found")
+        with open(file_path , "rb") as file:
+            return pickle.load(file)
+    except Exception as e:
+        logging.error(f"Error loading object {file_path}")
+        raise NetworkSecurityException(e , sys)
+
+def load_numpy_array(file_path: str) -> np.ndarray:
+    try:
+        if not os.path.exists(file_path):
+            raise Exception(f"File {file_path} not found")
+        with open(file_path , "rb") as file:
+            return np.load(file)
+    except Exception as e:
+        logging.error(f"Error loading numpy array {file_path}")
+        raise NetworkSecurityException(e , sys)
+
