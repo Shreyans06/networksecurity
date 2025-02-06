@@ -83,6 +83,7 @@ class DataTransformationConfig:
         self.transformed_train_file_path: str = os.path.join(self.data_transformation_dir , training_pipeline.DATA_TRANSFORMATION_TRANSFORMED_DATA_DIR , training_pipeline.TRAIN_FILE_NAME.replace("csv" , "npy"))
         self.transformed_test_file_path: str = os.path.join(self.data_transformation_dir , training_pipeline.DATA_TRANSFORMATION_TRANSFORMED_DATA_DIR , training_pipeline.TEST_FILE_NAME.replace("csv" , "npy"))
         self.transformed_object_file_path: str = os.path.join(self.data_transformation_dir , training_pipeline.DATA_TRANSFORMATION_TRANSFORMED_OBJECT_DIR , training_pipeline.PREPROCESSING_OBJECT_FILE_NAME)
+        self.final_preprocessor_file_path: str = os.path.join(training_pipeline.FINAL_MODEL_DIR_NAME , training_pipeline.FINAL_PREPROCESSOR_FILE_NAME)
 
 class ModelTrainerConfig:
     def __init__(self, training_pipeline_config: TrainingPipelineConfig):
@@ -97,3 +98,5 @@ class ModelTrainerConfig:
 
         self.expected_accuracy: float = training_pipeline.MODEL_TRAINER_EXPECTED_SCORE
         self.threshold: float = training_pipeline.MODEL_TRAINER_THRESHOLD
+        
+        self.final_model_file_path: str = os.path.join(training_pipeline.FINAL_MODEL_DIR_NAME , training_pipeline.FINAL_MODEL_FILE_NAME)

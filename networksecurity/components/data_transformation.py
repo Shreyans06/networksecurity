@@ -74,6 +74,7 @@ class DataTransformation:
             save_numpy_array(self.data_transformation_config.transformed_train_file_path , train_arr)
             save_numpy_array(self.data_transformation_config.transformed_test_file_path , test_arr)
             save_object(self.data_transformation_config.transformed_object_file_path , preprocessor_obj)
+            save_object(self.data_transformation_config.final_preprocessor_file_path , preprocessor_obj)
 
             data_transformation_artifact = DataTransformationArtifact(
                 transformed_train_file_path= self.data_transformation_config.transformed_train_file_path,
